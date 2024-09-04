@@ -76,7 +76,7 @@
 }
 
 .hamburger_icon_open {
-    mask-image: url('/cross.svg');
+    mask-image: url('./cross.svg');
 }
 
 .ul {
