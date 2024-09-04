@@ -1,0 +1,130 @@
+.nav,
+.nav_overlay_open,
+.nav_spacer {
+    --closedHeight: 3rem;
+    --navMaxWidth: 100%;
+    --navOpenBackgroundColor: white;
+    --navClosedBackgroundColor: transparent;
+    --spacerBackgroundColor: transparent;
+    --hamburgerBackgroundColor: white;
+    --linkColor: black;
+    --linkBackgroundColor: white;
+    --hoverEffectColor: black;
+    --overlayBackgroundColor: #0005;
+}
+
+
+.nav_overlay_open {
+    position: fixed;
+    height: 0%;
+    width: 100%;
+    background-color: var(--overlayBackgroundColor);
+    animation: navOverlayOpen 700ms forwards;
+}
+
+@keyframes navOverlayOpen {
+    to {
+        height: 100%;
+    }
+}
+
+.nav {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 100%;
+    height: var(--closedHeight);
+    background-color: var(--navClosedBackgroundColor);
+}
+
+.nav_open {
+    width: min(100%, 30rem);
+    right: 0;
+    overflow: hidden;
+    background-color: var(--navOpenBackgroundColor);
+    animation: navOpen 700ms forwards;
+}
+
+@keyframes navOpen {
+    to {
+        height: 100vh;
+    }
+}
+
+.hamburger {
+    margin-left: auto;
+    height: var(--closedHeight);
+    width: 3rem;
+    padding: .75rem;
+    border-radius: 9999px;
+    background-color: var(--hamburgerBackgroundColor);
+}
+
+.hamburger_open {
+    background-color: transparent;
+}
+
+.hamburger_icon {
+    width: 100%;
+    aspect-ratio: 1/1;
+    mask-image: url('./hamburger.svg');
+    mask-repeat: no-repeat;
+    mask-position: 50% 50%;
+    mask-size: 1.5rem;
+    background-color: black;
+}
+
+.hamburger_icon_open {
+    mask-image: url('/cross.svg');
+}
+
+.ul {
+    display: none;
+}
+
+.ul_open {
+    display: grid;
+}
+
+.a {
+    display: block;
+    background-color: var(--linkBackgroundColor);
+    color: var(--linkColor);
+    padding: 1.5rem 3rem;
+    width: 0%;
+    text-align: right;
+}
+
+.a_open {
+    animation: aOpen 500ms 100ms both;
+}
+
+@keyframes aOpen {
+    to {
+        width: 100%;
+    }
+}
+
+.li {
+    background-image: linear-gradient(to left, transparent, var(--hoverEffectColor));
+    background-repeat: no-repeat;
+    background-size: 300%;
+    background-position: 300%;
+    padding: 4px 0px;
+}
+
+.li:hover {
+    animation: liHover 500ms forwards;
+}
+
+@keyframes liHover {
+    to {
+        background-position: 0%;
+    }
+}
+
+.nav_spacer {
+    height: var(--closedHeight);
+    background-color: var(--spacerBackgroundColor);
+}
